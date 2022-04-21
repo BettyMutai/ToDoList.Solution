@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ToDoList.Models
+﻿namespace ToDoList.Models
 {
     public class Item
     {
         public string Description { get; set; }
-        private static List<Item> _instances = new List<Item> { };
+        private static readonly List<Item> _instances = new() { };
 
         public Item(string description)
         {

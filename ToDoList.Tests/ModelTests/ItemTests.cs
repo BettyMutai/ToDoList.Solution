@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework.Internal;
+using System.Collections.Generic;
 using ToDoList.Models;
 
 namespace ToDoList.Tests.ModelTests
@@ -10,7 +10,7 @@ namespace ToDoList.Tests.ModelTests
         [TestMethod]
         public void ItemConstructor_CreatesInstanceOfItem_Item()
         {
-            Item newItem = new Item("test");
+            Item newItem = new("test");
             Assert.AreEqual(typeof(Item), newItem.GetType());
         }
 
@@ -19,7 +19,7 @@ namespace ToDoList.Tests.ModelTests
         {
             //Arrange
             string description = "Walk the dog.";
-            Item newItem = new Item(description);
+            Item newItem = new(description);
             //Act
             string result = newItem.Description;
             //Assert
@@ -31,7 +31,7 @@ namespace ToDoList.Tests.ModelTests
         {
             //Arrange
             string desciption = "Walk the dog.";
-            Item newItem = new Item(desciption);
+            Item newItem = new(desciption);
 
             //Act
             string updateDescription = "Do the dishes.";
@@ -40,6 +40,20 @@ namespace ToDoList.Tests.ModelTests
 
             //Assert
             Assert.AreEqual(updateDescription, result);
+        }
+
+        [TestMethod]
+        public void GetAll_ReturnsEmptyList_ItemList()
+        {
+            //Arrange
+            List<Item> newList = new() { };
+
+
+            //Act
+            List<Item> result = Item.GetAll();
+
+            //Assert
+            CollectionAssert.AreEqual(newList, result);
         }
     }
 }
