@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ToDoList.Models
 {
-    internal class Item
+    public class Item
     {
+        public string Description { get; }
+
+        public Item(string description)
+        {
+            Description = description;
+        }
     }
 }
