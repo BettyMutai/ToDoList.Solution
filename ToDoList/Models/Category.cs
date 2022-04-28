@@ -20,5 +20,10 @@
             Id = _instances.Count;
             Items = new List<Item> { };
         }
+
+        public static List<Category> GetAll()
+        {
+            return _instances;
+        }
     }
 }
